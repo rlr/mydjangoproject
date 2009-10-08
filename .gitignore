@@ -1,0 +1,7 @@
+*.pyc
+.project
+.pydevproject
+dev.db
+.tmp_*
+local_settings.py
+

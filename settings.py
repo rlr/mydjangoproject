@@ -1,22 +1,20 @@
 # Django settings for mydjangoproject project.
 
+import os.path
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-# snippet to keep paths relative
-import os.path
-PROJECT_DIR = os.path.dirname(__file__)
+PROJECT_DIR = os.path.normpath(os.path.dirname(__file__))
 
 ADMINS = (
     ('Ricky Rosario', 'rickyrosario@gmail.com'),
 )
 
-INTERNAL_IPS = ('127.0.0.1',)
-
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'dev.db'             # Or path to database file if using sqlite3.
+DATABASE_NAME = os.path.join(PROJECT_ROOT, 'dev.db')             # Or path to database file if using sqlite3.
 DATABASE_USER = ''             # Not used with sqlite3.
 DATABASE_PASSWORD = ''         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
@@ -78,7 +76,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
 )
 
-ROOT_URLCONF = 'mydjangoproject.urls'
+INTERNAL_IPS = ('127.0.0.1',)
+
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),

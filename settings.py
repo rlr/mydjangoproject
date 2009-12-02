@@ -43,7 +43,7 @@ USE_I18N = False
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media') 
 MEDIA_URL = '/media/'
-STATIC_ROOT = join(MEDIA_ROOT, 'static')
+STATIC_ROOT = os.path.join(MEDIA_ROOT, 'static')
 STATIC_URL = '/media/static/'
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 

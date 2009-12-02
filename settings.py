@@ -41,15 +41,10 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = False
 
-# Absolute path to the directory that holds media.
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media') 
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-MEDIA_URL = 'http://localhost:8000/media/'
-
-# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
-# trailing slash.
+MEDIA_URL = '/media/'
+STATIC_ROOT = join(MEDIA_ROOT, 'static')
+STATIC_URL = '/media/static/'
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
@@ -74,6 +69,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
+    "mydjangoproject.core.context_processors.site_info",
 )
 
 INTERNAL_IPS = ('127.0.0.1',)
